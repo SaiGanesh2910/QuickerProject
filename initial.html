@@ -13,12 +13,14 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
   
   </head>
-  <body>
-    <input type="text" id="pname" name="pname">Enter Name</input>
-    <button id="fb">Click to Register</button>
-	<button><a href="index.html" class="button">Go To Game</a></button>
-    <script id="main-script">
-      var firebaseConfig = {
+  <body class="home">
+    <h1>Brick Break</h1>
+    <input type="text" id="pname" name="pname" placeholder="Enter Name"><br>
+    <button id="fb">Click to Register</button><br>
+    <button id="link"><a href="index.html" class="button">Go To Game</a></button><br>
+    <script>
+      //database
+var firebaseConfig = {
   apiKey: "AIzaSyDs3nkVpp2GjBBQivG5YFJ3NSXsSGTfTDI",
   authDomain: "breakout-sample.firebaseapp.com",
   projectId: "breakout-sample",
@@ -30,16 +32,15 @@
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-
-  var pname;
-  const db=firebase.firestore();
-  let button = document.getElementById("fb");
-  button.addEventListener("click",function(){
-    pname=document.getElementById('pname').value;
-    firebase.database().ref('player/'+pname).set({
-      PlayerName: pname
-    })
+var pname;
+const db=firebase.firestore();
+let button = document.getElementById("fb");
+button.addEventListener("click",function(){
+  pname=document.getElementById('pname').value;
+  firebase.database().ref('player/'+pname).set({
+    PlayerName: pname
   })
+})
 
     </script>
  

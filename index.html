@@ -13,10 +13,11 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
   </head>
   <body>
-    <h1>Breakout!</h1>
+    <h1 class="indexh1">Breakout!</h1>
         <h3 id="TIME">Time 00:00</h3>
     <button id="rules-btn" class="btn rules-btn">Show Rules</button>
-    <button id="start-btn" class="btn start-btn" onclick="startStop()">Play</button>
+    <button id="start-btn" class="btn start-btn" onclick="startStop()">Play</button><br>
+    <button id="show" class="rank" >Show Rank</button>
     <div id="rules" class="rules">
       <h2>How To Play:</h2>
       <p>
@@ -218,6 +219,7 @@ function moveBall() {
     pscore=score;
     score = 0;
     seconds=0;
+	document.getElementById('show').style.visibility="visible";
     window.clearInterval(interval);
     timeEl.innerHTML="Game Over" +"\n"+ "    Clickhere to restart";
     status="stopped";
@@ -230,29 +232,6 @@ function moveBall() {
     
   }
 }
-
-
-//firebase
-//firebase
-var firebaseConfig = {
-  apiKey: "AIzaSyDs3nkVpp2GjBBQivG5YFJ3NSXsSGTfTDI",
-  authDomain: "breakout-sample.firebaseapp.com",
-  projectId: "breakout-sample",
-  storageBucket: "breakout-sample.appspot.com",
-  messagingSenderId: "178073308801",
-  appId: "1:178073308801:web:ac0db10dc0a6ab87dc0780",
-  measurementId: "G-S4V9SNWB82"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-
-const db=firebase.firestore();
-
-
-
-
-
 
 
 
